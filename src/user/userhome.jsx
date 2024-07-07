@@ -1,15 +1,9 @@
-import { useState } from "react"
-import AXIOS from 'axios'
-import { useNavigate } from "react-router-dom"
+export default function UserHome(){
 
 
 
-
-function Login()
-{
+    const nav = useNavigate()
     
-
-    const nav = useNavigate();
     const [user,setUser] = useState({})
 
     const handleChange = (e)=>
@@ -25,20 +19,26 @@ function Login()
             AXIOS.post('http://localhost:9000/user/login',user)
             .then((res)=>
             {
-                if(res.data.status==1){
-                alert(res.data.msg)
-                }
-                else{
-                    alert(res.data.msg)
-                }
+                if(res.data.status==1)
+                    { sessionStorage.setItem('currentusername',res.data.currentusername)
+                        alert(res.data.msg)
+                     nav('/loghome')
+                    }
+                else
+                {alert(res.data.msg)}
+                
             })
             .catch(err=>{console.log(err)})
 
             
         }
+
+
+
+
     return(
         <>
-           <form action="" method="post" style={{marginTop:'120px'}} onSubmit={handleSubmit}>
+           <form action="" method="post" onSubmit={handleSubmit}>
             <div className="login-border">
 
             <div className="reg-wrapper">
@@ -70,4 +70,3 @@ function Login()
         </>
     )
 }
-export default Login

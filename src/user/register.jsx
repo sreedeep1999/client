@@ -18,8 +18,8 @@ export default function Register(){
         //you can use axios or fetch API for sending request to backend server.
 
         
-                 AXIOS.post("http://localhost:9000/user/register",formdata);
-                then((res)=>{
+                 AXIOS.post("http://localhost:9000/user/register",formdata)
+                .then((res)=>{
                     alert(res.data)
                 })
                 .catch(err=>console.log(err))
@@ -30,22 +30,25 @@ export default function Register(){
 
         <>
         
-            <form methods="post" style={{marginTop:'120px'}}>
+            <form methods="post" onSubmit={handleSubmit} style={{marginTop:'120px'}}>
             <input type="text"
             placeholder="fullname"
             name="fulname"
+            onChange={handlechange}
            
             />
 
     <input type="email"
             placeholder="email"
             name="email"
+            onChange={handlechange}
             
             />
 
     <input type="password"
             placeholder="password"
             name="password"
+            onChange={handlechange}
             
             />
 
@@ -54,6 +57,7 @@ export default function Register(){
     <input type="tel"
             placeholder="mobile"
             name="tel"
+            onChange={handlechange}
            
             />
 

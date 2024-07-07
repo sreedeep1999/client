@@ -6,6 +6,7 @@ import Addtask from "./TodoList/addtask"
 import EditTask from "./TodoList/editpage"
 import Register from "./user/register"
 import Login from "./user/login"
+import UserHome from "./user/userhome"
 
 
 
@@ -30,9 +31,9 @@ function App() {
 
             <Route path="/register" element={<Register/>}>    </Route>
 
-            <Route path="/login" element={<Login/>}></Route>
+            <Route path="/login" element={<Login/>}>       </Route>
 
-
+            <Route path="/userhome" element={<UserHome/>}>              </Route>
     </Routes>
       
 
